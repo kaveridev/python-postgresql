@@ -1,6 +1,6 @@
 import psycopg2
 from config import config
- def update_vendor(vendor_id, vendor_name):
+ def update_Books(book_id, book_name):
     """ update vendor name based on the vendor id """
     sql = """ UPDATE Books
                 SET book_name = %s
