@@ -1,14 +1,14 @@
 import psycopg2
 from psycopg2 import sql
 from datetime import datetime
-def get_parts():
-    """ query parts from the parts table """
+def get_Books():
+    """ query book from the books table """
     conn = None
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute("SELECT part_id, part_name FROM parts ORDER BY part_name")
+        cur.execute("SELECT book_id, book_name FROM Books")
         rows = cur.fetchall()
         print("The number of parts: ", cur.rowcount)
         for row in rows:
