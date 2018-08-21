@@ -5,7 +5,7 @@ from config import config
  
  
 def insert_Book(book_name):
-    """ insert a new vendor into the vendors table """
+    """ insert a new book into the Books table """
     sql = """INSERT INTO Books(book_name)
              VALUES(%s) RETURNING book_id;"""
     conn = None
@@ -15,7 +15,7 @@ def insert_Book(book_name):
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (vendor_name,))
+        cur.execute(sql, (book_name,))
         vendor_id = cur.fetchone()[0]
         conn.commit()
         cur.close()
