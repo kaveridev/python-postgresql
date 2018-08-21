@@ -4,7 +4,7 @@ import psycopg2
 from config import config
  
  
-def insert_Book(vendor_name):
+def insert_Book(book_name):
     """ insert a new vendor into the vendors table """
     sql = """INSERT INTO Books(book_name)
              VALUES(%s) RETURNING book_id;"""
@@ -25,4 +25,4 @@ def insert_Book(vendor_name):
         if conn is not None:
             conn.close()
  
-    return insert_id
+    return insert_Book
